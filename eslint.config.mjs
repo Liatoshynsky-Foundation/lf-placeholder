@@ -12,19 +12,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    ignores: [
-      '*.config.js',
-      '*.config.cjs',
-      '*.config.mjs',
-      '.*.js',
-      '.*.cjs',
-      '.*.mjs',
-      'node_modules',
-      '.next',
-      'coverage',
-      '.idea',
-      '.vscode'
-    ]
+    ignores: ['node_modules', 'coverage', '.idea', '.vscode']
   },
   {
     files: ['**/*.{ts,tsx}'],
@@ -42,10 +30,7 @@ export default defineConfig([
       'simple-import-sort': pluginSimpleImportSort,
       prettier: eslintPluginPrettier,
       import: pluginImport,
-      'unused-imports': pluginUnusedImports,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      '@typescript-eslint': tseslint
+      'unused-imports': pluginUnusedImports
     },
     rules: {
       'simple-import-sort/imports': [
