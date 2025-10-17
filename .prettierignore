@@ -1,3 +1,0 @@
-# Ignore YAML files to avoid singleQuote issues
-*.yml
-*.yaml
