@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Mulish';
+  src:
+    url('../assets/fonts/Mulish-Regular.ttf') format('truetype'),
+    url('../assets/fonts/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: Regular;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src:
+    url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype'),
+    url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: SemiBold;
+}

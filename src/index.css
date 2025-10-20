@@ -1,66 +1,37 @@
-@font-face {
-    font-family: 'Mulish';
-    src: url('../assets/fonts/Mulish-Regular.ttf') format('truetype'),
-        url('../assets/fonts/Mulish-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: Regular;
-}
-
-@font-face {
-    font-family: 'Mulish';
-    src: url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype'),
-        url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: SemiBold;
-}
-
-@font-face {
-    font-family: 'Oswald';
-    src: url('../assets/fonts/Oswald-Regular.ttf') format('truetype'),
-        url('../assets/fonts/Oswald-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: Regular;
-}
-
-@font-face {
-    font-family: 'Oswald';
-    src: url('../assets/fonts/Oswald-SemiBold.ttf') format('truetype'),
-        url('../assets/fonts/Oswald-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: SemiBold;
-}
+@import './oswald.css';
+@import './mulish.css';
 
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
 }
 
 :root {
-    font-family: Mulish;
-    line-height: 1.5;
-    font-weight: 400;
+  font-family: Mulish;
+  line-height: 1.5;
+  font-weight: 400;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    --black: #190D03;
-    --brown-700: #574139;
-    --white: #FCFCFC;
+  --black: #190d03;
+  --brown-700: #574139;
+  --white: #fcfcfc;
 }
 
 #root {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  justify-content: space-between;
 }
