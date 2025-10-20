@@ -28,9 +28,12 @@
         "noFallthroughCasesInSwitch": true,
         "noUncheckedSideEffectImports": true,
         "paths": {
+            "~/design/*": [
+                "./src/components/design/*"
+            ],
             "~/*": [
                 "./src/*"
-            ]
+            ],
         }
     },
     "include": [

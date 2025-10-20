@@ -3,7 +3,7 @@
     src: url('../assets/fonts/Mulish-Regular.ttf') format('truetype'),
         url('../assets/fonts/Mulish-Regular.ttf') format('truetype');
     font-weight: 400;
-    font-style: normal;
+    font-style: Regular;
 }
 
 @font-face {
@@ -11,7 +11,31 @@
     src: url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype'),
         url('../assets/fonts/Mulish-SemiBold.ttf') format('truetype');
     font-weight: 600;
-    font-style: normal;
+    font-style: SemiBold;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/Oswald-Regular.ttf') format('truetype'),
+        url('../assets/fonts/Oswald-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: Regular;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/Oswald-SemiBold.ttf') format('truetype'),
+        url('../assets/fonts/Oswald-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: SemiBold;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
 }
 
 :root {
@@ -25,4 +49,18 @@
     -moz-osx-font-smoothing: grayscale;
 
     --black: #190D03;
+    --brown-700: #574139;
+    --white: #FCFCFC;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    justify-content: space-between;
 }

@@ -1,7 +1,7 @@
 .social-media-container {
     display: flex;
     justify-content: left;
-    gap: 1rem;
+    gap: 8px;
 }
 
 .social-media-container a {
