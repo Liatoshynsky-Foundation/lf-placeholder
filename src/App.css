@@ -1,8 +1,23 @@
 .App {
-    text-align: center;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 48px 72px 0 72px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 72px 0 72px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .App {
+    padding-left: 56px;
+    padding-right: 56px;
+    padding-top: 32px;
+  }
 }

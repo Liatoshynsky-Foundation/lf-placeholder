@@ -1,5 +1,4 @@
-// prettier.config.js
-module.exports = {
+export default {
   trailingComma: 'none',
   arrowParens: 'always',
   printWidth: 120,

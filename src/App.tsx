@@ -20,7 +20,7 @@ function App() {
             <Typography variant="h" style={{ marginBottom: '24px' }}>
               TechNICal PaUse
             </Typography>
-            <Typography variant="body1" style={{ width: '500px' }}>
+            <Typography variant="body1" style={{ maxWidth: '500px' }}>
               Our team is working on updating the Lyatoshinsky Foundation website. Very soon it will open for you in a
               new look.
             </Typography>

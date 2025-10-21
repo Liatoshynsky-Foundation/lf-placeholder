@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   pattern: '^(feature|bugfix|chore|test)/[0-9]+/[a-z0-9]+(-[a-z0-9]+)*$|(hotfix|release)/[0-9]+\\.[0-9]+\\.[0-9]+$',
 
   examples: [
