@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <img src="/logo.png" alt="Header Logo" style={{ transform: 'translate(-24%)' }} />
+      <img src="/logo.png" alt="Header Logo" style={{ transform: 'translate(-24%)' }} className="logo-img" />
       <button className="language-switch" onClick={switchLang}>
         <img src="/globe.svg" alt="Language Icon" />
         <Typography variant="body2" className="disappearing-text" style={{ color: 'var(--black)' }}>

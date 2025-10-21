@@ -14,6 +14,10 @@
   background-color: rgba(25, 13, 3, 0.1);
 }
 
+.logo-img {
+  height: 53px;
+}
+
 @media (max-width: 410px) {
   .disappearing-text {
     display: none;
@@ -21,5 +25,9 @@
 
   .language-switch {
     padding: 8px;
+  }
+
+  .logo-img {
+    height: 30px;
   }
 }
