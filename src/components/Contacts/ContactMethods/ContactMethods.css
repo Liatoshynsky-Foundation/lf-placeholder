@@ -1,18 +1,28 @@
 .contact-methods {
   display: flex;
-  gap: 1.5rem;
+  gap: 48px;
 }
 
 .contact-method-container {
   display: flex;
   flex-direction: column;
   text-align: left;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
 @media (max-width: 1024px) {
   .contact-methods {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-methods {
+    gap: 16px;
+  }
+
+  .contact-method-container {
+    gap: 4px;
   }
 }
