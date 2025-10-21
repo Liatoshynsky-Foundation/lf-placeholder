@@ -1,17 +1,11 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 
-import { Lang, supportedLanguages } from '../types/lang';
+import { LanguageContext } from '~/context/LanguageContext';
 
 export function useLanguage() {
-  const [lang, setLang] = useState<Lang>('en');
-
-  function changeLanguage(newLang: Lang) {
-    if (supportedLanguages.includes(newLang)) {
-      setLang(newLang);
-    } else {
-      console.warn(`Unsupported language: ${newLang}`);
-    }
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
-
-  return { lang, changeLanguage };
+  return context;
 }

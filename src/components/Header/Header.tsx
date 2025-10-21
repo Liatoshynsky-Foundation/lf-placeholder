@@ -1,30 +1,21 @@
 import './Header.css';
 
-import type { Lang } from '~/types/lang';
+import { useLanguage } from '~/hooks/useLanguage';
+import { useTranslation } from '~/hooks/useTranslation';
 
 import Typography from '~/design/Typography/Typography';
 
-export default function Header({ lang }: { lang: Lang }) {
-  let msg: string;
-
-  switch (lang) {
-    case 'en':
-      msg = 'Українською';
-      break;
-    case 'uk':
-      msg = 'Іn English';
-      break;
-    default:
-      throw new Error('Unsupported language');
-  }
+export default function Header() {
+  const { switchLang } = useLanguage();
+  const t = useTranslation('header');
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <img src="/logo.png" alt="Header Logo" style={{ transform: 'translate(-24%)' }} />
-      <button className="language-switch">
+      <button className="language-switch" onClick={switchLang}>
         <img src="/globe.svg" alt="Language Icon" />
         <Typography variant="body2" style={{ color: 'var(--black)' }}>
-          {msg}
+          {t('changelang')}
         </Typography>
       </button>
     </div>
