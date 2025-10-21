@@ -7,7 +7,7 @@ interface TypographyProps extends React.HTMLAttributes<HTMLDivElement> {
   variant: Variant;
 }
 
-export default function Typography({ children, variant, ...props }: TypographyProps) {
+export default function Typography({ children, variant, className, ...props }: TypographyProps) {
   const variants = {
     h: 'typography-h',
     link: 'typography-link',
@@ -15,8 +15,10 @@ export default function Typography({ children, variant, ...props }: TypographyPr
     body2: 'typography-body2'
   };
 
+  const classNames = variants[variant] + ' ' + className;
+
   return (
-    <div className={variants[variant]} {...props}>
+    <div className={classNames} {...props}>
       {children}
     </div>
   );

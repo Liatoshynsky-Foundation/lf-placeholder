@@ -13,3 +13,13 @@
 .language-switch:hover {
   background-color: rgba(25, 13, 3, 0.1);
 }
+
+@media (max-width: 410px) {
+  .disappearing-text {
+    display: none;
+  }
+
+  .language-switch {
+    padding: 8px;
+  }
+}

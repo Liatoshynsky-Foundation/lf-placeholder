@@ -6,7 +6,7 @@ export default function Body() {
   const t = useTranslation('body');
 
   return (
-    <div style={{ textAlign: 'left', marginTop: '64px' }}>
+    <div style={{ textAlign: 'left', margin: '64px 0' }}>
       <Typography variant="h" style={{ marginBottom: '24px' }}>
         {t('title')}
       </Typography>
