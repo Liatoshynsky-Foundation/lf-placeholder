@@ -1,0 +1,35 @@
+.language-switch {
+  cursor: pointer;
+  border-radius: 999px;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.language-switch:hover {
+  background-color: rgba(25, 13, 3, 0.1);
+}
+
+.logo-img {
+  height: 53px;
+}
+
+@media (max-width: 410px) {
+  .disappearing-text {
+    display: none;
+  }
+
+  .language-switch {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .logo-img {
+    height: 30px;
+  }
+}

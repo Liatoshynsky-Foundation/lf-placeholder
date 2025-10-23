@@ -43,7 +43,30 @@ export default defineConfig([
           ]
         }
       ],
-      'simple-import-sort/exports': 'error'
+      'simple-import-sort/exports': 'error',
+      indent: ['error', 2, { SwitchCase: 1 }],
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto'
+        }
+      ],
+      'no-console': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_'
+        }
+      ],
+      'no-var': 'error',
+      'prefer-const': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'import/no-duplicates': 'error',
+      'unused-imports/no-unused-imports': 'error'
     }
   }
 ]);
