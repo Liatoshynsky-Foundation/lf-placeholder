@@ -1,4 +1,60 @@
+# Dependencies
 node_modules
-.github
-coverage
+npm-debug.log
+package-lock.json
+
+# Build outputs
+dist
+build
+.vite
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Environment
 .env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+.DS_Store
+*.log
+*.local
+
+# Documentation
+README.md
+LICENSE.txt
+*.md
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.yaml
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.gitlab-ci.yaml
+
+# Config files that aren't needed
+prettier.config.js
+commitlint.config.js
+lint-staged.config.js
+jest.config.ts
+eslint.config.js
