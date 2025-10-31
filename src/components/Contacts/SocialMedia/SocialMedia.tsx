@@ -4,22 +4,27 @@ import { useTranslation } from '~/hooks/useTranslation';
 
 import Typography from '~/design/Typography/Typography';
 
-export default function SocialMedia() {
+interface SocialMediaProps {
+  mediaLinks?: {
+    name: string;
+    href: string;
+  }[];
+}
+
+export default function SocialMedia({ mediaLinks }: SocialMediaProps) {
   const t = useTranslation('contacts');
 
   return (
     <div>
       <Typography variant="body2">{t('socialMedia')}</Typography>
+
       <div className="social-media-container">
-        <a href="https://www.instagram.com/liatoshynsky_foundation/">
-          <img src="/instagram.svg" alt="Instagram" />
-        </a>
-        <a href="https://www.facebook.com/LiatoshynskyFoundation/">
-          <img src="/facebook.svg" alt="Facebook" />
-        </a>
-        <a href="https://www.youtube.com/">
-          <img src="/youtube.svg" alt="YouTube" />
-        </a>
+        {mediaLinks &&
+          mediaLinks.map((link) => (
+            <a key={link.name} href={link.href}>
+              <img src={`/${link.name}.svg`} alt={link.name} />
+            </a>
+          ))}
       </div>
     </div>
   );
