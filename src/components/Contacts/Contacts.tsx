@@ -14,7 +14,7 @@ export default function Contacts() {
   return (
     <div className="contacts-container">
       <ContactMethods email={data.email} phone={data.phone} />
-      <SocialMedia />
+      <SocialMedia mediaLinks={data.links} />
     </div>
   );
 }

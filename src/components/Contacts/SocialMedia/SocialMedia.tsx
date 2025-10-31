@@ -3,12 +3,10 @@ import './SocialMedia.css';
 import { useTranslation } from '~/hooks/useTranslation';
 
 import Typography from '~/design/Typography/Typography';
+import type { MediaLink } from '~/queries/contacts';
 
 interface SocialMediaProps {
-  mediaLinks?: {
-    name: string;
-    href: string;
-  }[];
+  mediaLinks: MediaLink[];
 }
 
 export default function SocialMedia({ mediaLinks }: SocialMediaProps) {
