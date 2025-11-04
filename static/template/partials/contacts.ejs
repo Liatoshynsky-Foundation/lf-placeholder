@@ -1,0 +1,31 @@
+<div class="contacts-container">
+  <div class="contact-methods">
+    <div class="contact-method-container">
+      <div class="typography-body2"><%= phoneText %></div>
+      <a href="tel:<%= phone %>">
+        <div class="typography-link"><%= phone %></div>
+      </a>
+    </div>
+
+    <div class="contact-method-container">
+      <div class="typography-body2"><%= emailText %></div>
+      <a href="mailto:<%= email %>">
+        <div class="typography-link"><%= email %></div>
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="typography-body2"><%= socialMediaText %></div>
+
+    <div class="social-media-container">
+      <% if (mediaLinks && mediaLinks.length) { %>
+        <% mediaLinks.forEach(function(link) { %>
+          <a href="<%= link.href %>" title="<%= link.name %>">
+            <img src="/<%= link.name %>.svg" alt="<%= link.name %>" />
+          </a>
+        <% }); %>
+      <% } %>
+    </div>
+  </div>
+</div>

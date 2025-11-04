@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/svg+xml" href="/tab_logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&family=Oswald:wght@400;600&display=swap"
+    rel="stylesheet">
+    
+    <link rel="stylesheet" href="/styles/index.css" />
+    <link rel="stylesheet" href="/styles/app.css" />
+    <link rel="stylesheet" href="/styles/contact-methods.css" />
+    <link rel="stylesheet" href="/styles/contacts.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/typography.css" />
+    <link rel="stylesheet" href="/styles/social-media.css" />
+
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <main className="App">
+        <div>
+            <!-- <Header /> -->
+            <div>
+                <%- include('./partials/header') %>
+            </div>
+            <div>
+                <%- include('./partials/body') %>
+            </div>
+            <!-- <Body /> -->
+        </div>
+        <!-- <Contacts /> -->
+        <%- include('./partials/contacts') %>
+    </main>
+    <div style="display: flex; justify-content: end">
+        <img src="/liatoshinsky-footer.png" alt="Footer Logo" style="width: 100%">
+    </div>
+</body>
+
+</html>
