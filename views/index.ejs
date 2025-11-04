@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" type="image/svg+xml" href="/tab_logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icons/tab_logo.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&family=Oswald:wght@400;600&display=swap"
@@ -20,27 +20,20 @@
     <link rel="stylesheet" href="/styles/social-media.css" />
 
     <title>
-        <%= title %>
+        lf-placeholder
     </title>
 </head>
 
 <body>
-    <main className="App">
+    <div id="App">
         <div>
-            <!-- <Header /> -->
-            <div>
-                <%- include('./partials/header') %>
-            </div>
-            <div>
-                <%- include('./partials/body') %>
-            </div>
-            <!-- <Body /> -->
+            <%- include('./partials/header', header) %>
+            <%- include('./partials/body', body) %>
         </div>
-        <!-- <Contacts /> -->
-        <%- include('./partials/contacts') %>
-    </main>
+        <%- include('./partials/contacts', contacts) %>
+    </div>
     <div style="display: flex; justify-content: end">
-        <img src="/liatoshinsky-footer.png" alt="Footer Logo" style="width: 100%">
+        <img src="/images/liatoshinsky-footer.png" alt="Footer Logo" style="width: 100%">
     </div>
 </body>
 

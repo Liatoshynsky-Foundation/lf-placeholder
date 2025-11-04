@@ -4,11 +4,12 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only exprsrc/app.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
     "build": "tsc",
-    "start": "node dist/exprsrc/app.js"
+    "start": "node dist/src/app.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongodb": "^6.20.0",
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.36.0",
+    "@types/cookie-parser": "^1.4.10",
     "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.5",
     "@types/node": "^24.10.0",
