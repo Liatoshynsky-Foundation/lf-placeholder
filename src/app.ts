@@ -1,7 +1,13 @@
 import cookieParser from 'cookie-parser';
-import type { Request, Response } from 'express';
-import express from 'express';
+import dotenv from 'dotenv';
+import express, { Request, Response } from 'express';
 import path from 'path';
+
+import { fetchContacts } from './fetch';
+import en from './translation/en.json';
+import uk from './translation/uk.json';
+
+dotenv.config({ path: path.resolve(__dirname, '..', '.env.local') });
 
 const app = express();
 
@@ -11,51 +17,40 @@ app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, '..', 'static')));
-// parse cookies into req.cookies
 app.use(cookieParser());
 
-function nextLang(currentLang: string): string {
-  const languages = ['ua', 'en'];
-  const currentIndex = languages.indexOf(currentLang);
-  const nextIndex = (currentIndex + 1) % languages.length;
-  return languages[nextIndex];
-}
+const translations: Record<string, typeof uk> = {
+  en,
+  uk
+};
 
-app.get('/', (req: Request, res: Response) => {
-  const allowed = new Set(['en', 'ua']);
-  const defaultLang = 'ua';
+const defaultLang = 'uk';
+const allowed = new Set(['en', 'uk']);
+
+app.get('/', async (req: Request, res: Response) => {
   const cookieLang = typeof req.cookies?.lang === 'string' ? req.cookies.lang : undefined;
-  // accept only 'en' or 'ua', otherwise use default and (re)set cookie
-  const lang = cookieLang && allowed.has(cookieLang) ? cookieLang : defaultLang;
-  if (cookieLang !== lang) {
-    // set or correct the cookie when missing or invalid
-    res.cookie('lang', lang, { maxAge: 90_0000, httpOnly: true });
+
+  const langToServe = cookieLang && allowed.has(cookieLang) ? cookieLang : defaultLang;
+
+  const nextLang = langToServe === 'uk' ? 'en' : 'uk';
+  res.cookie('lang', nextLang, { maxAge: 90_0000, httpOnly: true });
+
+  const t = translations[langToServe];
+  const contacts = await fetchContacts();
+
+  if (!contacts) {
+    return res.status(500).send('Error fetching contact information.');
   }
 
-  console.log(`Language selected: ${lang}`);
+  const merger = {
+    ...t.contacts,
+    ...contacts
+  };
 
   res.render('index', {
-    header: {
-      changeLang: 'Eng',
-      lang: nextLang(lang)
-    },
-    body: {
-      title: 'Home',
-      text: 'Welcome to our website!'
-    },
-    contacts: {
-      phoneText: 'Call Us',
-      emailText: 'Email Us',
-      socialMediaText: 'Follow Us',
-
-      phone: '+1-234-567-890',
-      email: 'info@example.com',
-      mediaLinks: [
-        { href: 'https://facebook.com', name: 'facebook' },
-        { href: 'https://youtube.com', name: 'youtube' },
-        { href: 'https://instagram.com', name: 'instagram' }
-      ]
-    }
+    header: t.header,
+    body: t.body,
+    contacts: merger
   });
 });
 

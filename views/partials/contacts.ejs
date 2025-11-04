@@ -17,12 +17,11 @@
 
   <div>
     <div class="typography-body2"><%= socialMediaText %></div>
-
     <div class="social-media-container">
-      <% if (mediaLinks && mediaLinks.length) { %>
-        <% mediaLinks.forEach(function(link) { %>
-          <a href="<%= link.href %>" title="<%= link.name %>">
-            <img src="/icons/<%= link.name %>.svg" alt="<%= link.name %>" />
+      <% if (socialLinks && socialLinks.length) { %>
+        <% socialLinks.forEach(function(link) { %>
+          <a href="<%= link.link %>" title="<%= link.icon %>">
+            <img src="/icons/<%= link.icon %>.svg" alt="<%= link.icon %>" />
           </a>
         <% }); %>
       <% } %>

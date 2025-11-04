@@ -1,9 +1,9 @@
 <div style="display: flex; align-items: center; justify-content: space-between;">
-    <img src="/images/logo.png" alt="Header Logo" style="transform: translate(-24%);" class="logo-img" />
-    <a class="language-switch" href="/?lang=<%= lang %>">
-        <img src="/icons/globe.svg" alt="Language Icon" />
-        <div class="disappearing-text typography-body2" style="color: var(--black)">
-            <%= header.changeLang %>
-        </div>
-    </a>
+  <img src="/images/logo.png" alt="Header Logo" style="transform: translate(-24%);" class="logo-img" />
+  <button class="language-switch" onClick="switchLanguage()">
+    <img src="/icons/globe.svg" alt="Language Icon" />
+    <div class="disappearing-text typography-body2" style="color: var(--black)">
+      <%= changelang %>
+    </div>
+  </button>
 </div>

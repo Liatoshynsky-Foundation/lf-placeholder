@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   trailingComma: 'none',
   arrowParens: 'always',
   printWidth: 120,
