@@ -25,10 +25,9 @@ const tooltip = (() => {
 })();
 
 let tooltipTimeout = 0;
-let lang = 'uk';
 const t = {
-  en: 'Copied!',
-  uk: 'Скоповано!'
+  en: 'Copied',
+  uk: 'Скопійовано'
 };
 
 function showTooltipAt(anchor, message, duration = 2000) {

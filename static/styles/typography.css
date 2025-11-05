@@ -23,10 +23,6 @@
   color: var(--black);
 }
 
-.typography-link:hover {
-  text-decoration: underline;
-}
-
 .typography-body1 {
   font-family: 'Mulish';
   font-weight: 500;

@@ -11,6 +11,10 @@
   text-decoration: none;
 }
 
+.contact:hover {
+  text-decoration: underline;
+}
+
 .copy-btn {
   background: none;
   border: none;
