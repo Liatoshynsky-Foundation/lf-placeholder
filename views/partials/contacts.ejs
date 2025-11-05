@@ -2,25 +2,31 @@
   <div class="contact-methods">
     <div class="contact-method-container">
       <div class="typography-body2"><%= phoneText %></div>
-      <a href="tel:<%= phone %>">
-        <div class="typography-link"><%= phone %></div>
-      </a>
+      <div class="contact">
+        <a class="typography-link" href="tel:<%= phone %>"><%= phone %></a>
+        <button class="copy-btn" data-to-copy="<%= phone %>" onClick="copyToClipboard(this)">
+            <img src="/icons/copy.svg" alt="Copy Icon" />
+        </button>
+      </div>
     </div>
 
     <div class="contact-method-container">
       <div class="typography-body2"><%= emailText %></div>
-      <a href="mailto:<%= email %>">
-        <div class="typography-link"><%= email %></div>
-      </a>
+      <div class="contact">
+        <a class="typography-link" href="mailto:<%= email %>"><%= email %></a>
+        <button class="copy-btn" data-to-copy="<%= email %>" onClick="copyToClipboard(this)">
+            <img src="/icons/copy.svg" alt="Copy Icon" />
+        </button>
+      </div>
     </div>
   </div>
 
   <div>
-    <div class="typography-body2"><%= socialMediaText %></div>
+    <div class="typography-body2" style="padding-bottom: 10px;"><%= socialMediaText %></div>
     <div class="social-media-container">
       <% if (socialLinks && socialLinks.length) { %>
         <% socialLinks.forEach(function(link) { %>
-          <a href="<%= link.link %>" title="<%= link.icon %>">
+          <a href="<%= link.link %>" class="social-link <%= link.icon %>">
             <img src="/icons/<%= link.icon %>.svg" alt="<%= link.icon %>" />
           </a>
         <% }); %>

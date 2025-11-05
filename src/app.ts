@@ -50,7 +50,8 @@ app.get('/', async (req: Request, res: Response) => {
   res.render('index', {
     header: t.header,
     body: t.body,
-    contacts: merger
+    contacts: merger,
+    lang: langToServe
   });
 });
 
