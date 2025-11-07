@@ -11,6 +11,18 @@ export type Contacts = {
   socialLinks: SocialLink[];
 };
 
+function defaultContacts(): Contacts {
+  return {
+    email: 'liatoshynsky@gmail.com',
+    phone: '067 963 8366',
+    socialLinks: [
+      { icon: 'instagram', link: 'https://www.instagram.com/liatoshynsky_foundation/' },
+      { icon: 'facebook', link: 'https://www.facebook.com/LiatoshynskyFoundation/' },
+      { icon: 'youtube', link: 'https://www.youtube.com/' }
+    ]
+  };
+}
+
 let client: MongoClient | null = null;
 let cachedContacts: Contacts | null = null;
 let cacheExpiresAt: Date = new Date(0);
@@ -32,12 +44,12 @@ async function Connect(): Promise<Db> {
   return client.db(MONGO_DB);
 }
 
-export async function fetchContacts(): Promise<Contacts | null> {
+export async function fetchContacts(): Promise<Contacts> {
   if (cachedContacts && cacheExpiresAt > new Date()) {
     return cachedContacts;
   }
 
-  cacheExpiresAt = new Date(Date.now() + 5 * 60 * 1000);
+  cacheExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
   try {
     const db = await Connect();
@@ -46,15 +58,14 @@ export async function fetchContacts(): Promise<Contacts | null> {
     const doc = await col.findOne({ slug: 'contact-info' });
 
     if (!doc || !doc.email || !doc.phone || !Array.isArray(doc.socialLinks)) {
-      return null;
+      return defaultContacts();
     }
 
     cachedContacts = doc;
 
     return cachedContacts;
-  } catch (err) {
-    console.error('Error fetching contacts:', err);
-    return null;
+  } catch {
+    return defaultContacts();
   }
 }
 
