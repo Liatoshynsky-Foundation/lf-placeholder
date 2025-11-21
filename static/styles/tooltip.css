@@ -1,0 +1,36 @@
+.tooltip-base {
+  position: fixed;
+  pointer-events: none;
+  background-color: var(--blue-800);
+  font-size: 14px;
+  font-family: 'Mulish';
+  font-weight: 400;
+  font-style: italic;
+  line-height: 140%;
+  text-align: center;
+  color: var(--white);
+  border-radius: 999px;
+  z-index: 1000;
+  white-space: nowrap;
+  padding: 4px 16px;
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease;
+  transform: translateY(4px);
+  opacity: 0;
+}
+
+.tooltip-base::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 0;
+  height: 0;
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: var(--blue-800) transparent transparent transparent;
+  pointer-events: none;
+  transition: inherit;
+}

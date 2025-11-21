@@ -2,24 +2,28 @@
   "name": "lf-placeholder",
   "private": true,
   "version": "0.1.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "test": "echo Unimplemented && exit 0",
-    "lint:fix": "eslint . --fix",
-    "preview": "vite preview",
-    "prepare": "husky"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc",
+    "start": "node dist/src/app.js",
+    "test": "echo \"Really? Tests for this?\""
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.36.0",
-    "@types/node": "^24.6.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react-swc": "^4.1.0",
@@ -36,6 +40,7 @@
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "prettier": "^3.6.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
     "vite": "^7.1.7"
