@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Build the application
-RUN npx vite build
+RUN npm run build
 
 # Production stage: lightweight image for serving static files
 FROM nginx:alpine AS runner
