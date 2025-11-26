@@ -1,0 +1,29 @@
+name: CD
+
+# Required GitHub Secrets:
+# - VPS_HOST: VPS server hostname or IP address
+# - VPS_PORT: SSH port (optional, defaults to 22 if not set)
+# - VPS_SSH_KEY: Private SSH key for VPS authentication
+# - VPS_USERNAME: SSH username for VPS access
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+      - "release/*"
+
+jobs:
+  deploy:
+    uses: Liatoshynsky-Foundation/lf-devops/.github/workflows/reusable-cd.yml@main
+    with:
+      project-name: lf-placeholder
+      deploy-vps: true
+      vps-host-secret: VPS_HOST
+      vps-username-secret: VPS_USERNAME
+      vps-ssh-key-secret: VPS_SSH_KEY
+      vps-port-secret: VPS_PORT
+      vps-compose-path: "/root/docker/lf-prj"
+      vps-services: "lf-placeholder"
+      vps-health-check-url: "https://liatoshynsky.com/"
+      vps-deployment-url: "https://liatoshynsky.com"
