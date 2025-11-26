@@ -28,11 +28,14 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
+          cache-dependency-path: lf-placeholder/package-lock.json
 
       - name: Install dependencies
+        working-directory: lf-placeholder
         run: npm ci
 
       - name: Run ESLint
+        working-directory: lf-placeholder
         run: npm run lint
 
   type-check:
@@ -51,11 +54,14 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
+          cache-dependency-path: lf-placeholder/package-lock.json
 
       - name: Install dependencies
+        working-directory: lf-placeholder
         run: npm ci
 
       - name: Run TypeScript type check
+        working-directory: lf-placeholder
         run: npx tsc --noEmit
 
   build:
@@ -76,9 +82,12 @@ jobs:
         with:
           node-version: 22
           cache: "npm"
+          cache-dependency-path: lf-placeholder/package-lock.json
 
       - name: Install dependencies
+        working-directory: lf-placeholder
         run: npm ci
 
       - name: Build project
+        working-directory: lf-placeholder
         run: npm run build
