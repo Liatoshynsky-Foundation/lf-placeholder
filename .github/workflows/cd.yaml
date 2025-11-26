@@ -18,7 +18,7 @@ jobs:
     uses: Liatoshynsky-Foundation/lf-devops/.github/workflows/reusable-cd.yml@main
     with:
       project-name: lf-placeholder
-      deploy-vps: true
+      deploy-vps: false
       vps-host-secret: VPS_HOST
       vps-username-secret: VPS_USERNAME
       vps-ssh-key-secret: VPS_SSH_KEY
