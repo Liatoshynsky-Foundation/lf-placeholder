@@ -30,12 +30,19 @@ const allowed = new Set(['en', 'uk']);
 app.get('/', async (req: Request, res: Response) => {
   const cookieLang = typeof req.cookies?.lang === 'string' ? req.cookies.lang : undefined;
 
-  const langToServe = cookieLang && allowed.has(cookieLang) ? cookieLang : defaultLang;
+  let langToServe = cookieLang && allowed.has(cookieLang) ? cookieLang : defaultLang;
 
-  const nextLang = cookieLang && langToServe === 'uk' ? 'en' : 'uk';
-  res.cookie('lang', nextLang, { maxAge: 90_0000, httpOnly: true });
+  const isFetch = req.headers['sec-fetch-dest'] === 'empty';
 
-  const t = translations[nextLang];
+  if (isFetch) {
+    langToServe = langToServe === 'uk' ? 'en' : 'uk';
+  }
+
+  if (isFetch || !cookieLang) {
+    res.cookie('lang', langToServe, { maxAge: 90_0000, httpOnly: true });
+  }
+
+  const t = translations[langToServe];
   const contacts = await fetchContacts();
 
   if (!contacts) {
@@ -51,7 +58,7 @@ app.get('/', async (req: Request, res: Response) => {
     header: t.header,
     body: t.body,
     contacts: merger,
-    lang: nextLang
+    lang: langToServe
   });
 });
 
