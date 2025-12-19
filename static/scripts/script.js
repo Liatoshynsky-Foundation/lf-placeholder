@@ -1,5 +1,10 @@
 async function switchLanguage() {
   try {
+    const currentLang = document.documentElement.lang || 'uk';
+    const nextLang = currentLang === 'uk' ? 'en' : 'uk';
+
+    await fetch(`/set-lang/${nextLang}`);
+
     const res = await fetch('/', { credentials: 'same-origin' });
     const html = await res.text();
 
@@ -11,7 +16,7 @@ async function switchLanguage() {
     const oldApp = document.getElementById('App');
     oldApp.replaceWith(newApp.cloneNode(true));
 
-    document.documentElement.lang = doc.documentElement.lang;
+    document.documentElement.lang = nextLang;
   } catch (err) {
     window.location.href = '/';
   }

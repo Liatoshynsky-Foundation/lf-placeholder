@@ -32,10 +32,10 @@ app.get('/', async (req: Request, res: Response) => {
 
   const langToServe = cookieLang && allowed.has(cookieLang) ? cookieLang : defaultLang;
 
-  const nextLang = cookieLang && langToServe === 'uk' ? 'en' : 'uk';
-  res.cookie('lang', nextLang, { maxAge: 90_0000, httpOnly: true });
-
-  const t = translations[nextLang];
+  if (!cookieLang) {
+    res.cookie('lang', langToServe, { maxAge: 90_0000, httpOnly: true });
+  }
+  const t = translations[langToServe];
   const contacts = await fetchContacts();
 
   if (!contacts) {
@@ -51,8 +51,17 @@ app.get('/', async (req: Request, res: Response) => {
     header: t.header,
     body: t.body,
     contacts: merger,
-    lang: nextLang
+    lang: langToServe
   });
+});
+
+app.get('/set-lang/:lang', (req: Request, res: Response) => {
+  const { lang } = req.params;
+
+  if (allowed.has(lang)) {
+    res.cookie('lang', lang, { maxAge: 90_0000, httpOnly: true });
+    return res.sendStatus(200);
+  }
 });
 
 app.listen(PORT, () => {
